@@ -14,7 +14,7 @@ namespace RpiFrame
         }
 
 
-        public IEnumerable<string> Discover()
+        public IEnumerable<MediaFile> Discover()
         {
             var currentDir = Directory.GetCurrentDirectory();
             var samplesDir = Path.Combine(currentDir, "../../../samples");
@@ -27,7 +27,7 @@ namespace RpiFrame
                 Console.WriteLine(file);
             }
 
-            return files;
+            return files.Select(MediaLoader.LoadImageMetadata);
         }
     }
 }

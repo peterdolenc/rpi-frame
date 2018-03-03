@@ -14,7 +14,7 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    public void LoadImage(string path) {
-        MainImage.File = path;
+    public void LoadImage(Gdk.Pixbuf pixbuf) {
+        MainImage.Pixbuf = pixbuf;
     }
 }

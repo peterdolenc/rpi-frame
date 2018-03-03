@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using RpiFrame.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RpiFrame
 {
@@ -9,16 +12,32 @@ namespace RpiFrame
         }
 
 
+        private IEnumerable<MediaFile> NextSequence { get; set; }
 
-        public List<MediaFile> GetNextSequence(List<MediaFile> mediaFiles) {
+        private bool NextSequencePrepared => NextSequence != null;
 
-            // TODO: split to prepare + get
-            // have a boolean indicating if it's ready yet
-            // call prepare async
-            // load binaries in preparation
 
-            mediaFiles.ForEach(MediaLoader.LoadImageToPixbuf);
-            return mediaFiles;
+        /// <summary>
+        /// Prepares the next sequence by loading image files and doing some processing
+        /// </summary>
+        public void PrepareNextSequence(IEnumerable<MediaFileHeader> mediaHeaders) {
+            NextSequence = null;
+            NextSequence = mediaHeaders.Select(MediaLoader.LoadImage).ToList();
         }
+
+
+        /// <summary>
+        /// Fetches the next sequence when it's ready
+        /// Prepare method has to be called in advance (manually)
+        /// </summary>
+        public async Task<IEnumerable<MediaFile>> GetNextSequence() {
+            while (!NextSequencePrepared) {
+                await Task.Delay(100);
+            }
+
+            return NextSequence;
+        }
+
+
     }
 }

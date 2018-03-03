@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RpiFrame
+namespace RpiFrame.Entities
 {
     public class Settings
     {

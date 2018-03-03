@@ -1,13 +1,12 @@
 ﻿using System;
-namespace RpiFrame
+
+namespace RpiFrame.Entities
 {
-    public class MediaFile
+    public class MediaFileHeader
     {
         public string Path { get; set; }
 
         public DateTime DateTaken { get; set; }
-
-        public Gdk.Pixbuf Pixbuf { get; set; }
 
         public bool IsVideo { get; set; }
     }

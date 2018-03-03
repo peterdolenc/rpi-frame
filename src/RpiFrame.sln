@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{BD35
 		samples\IMG_4923.JPG = samples\IMG_4923.JPG
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RpiFrame.Entities", "RpiFrame.Entities\RpiFrame.Entities.shproj", "{F3256306-08B2-47D5-87B2-444D63387C0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86

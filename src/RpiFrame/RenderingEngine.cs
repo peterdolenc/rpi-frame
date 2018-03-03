@@ -1,4 +1,6 @@
 ﻿using System;
+using RpiFrame.Entities;
+
 namespace RpiFrame
 {
     public class RenderingEngine

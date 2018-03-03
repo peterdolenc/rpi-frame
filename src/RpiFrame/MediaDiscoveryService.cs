@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using RpiFrame.Entities;
 
 namespace RpiFrame
 {
@@ -9,12 +10,9 @@ namespace RpiFrame
     {
         public MediaDiscoveryService()
         {
-
-           
         }
 
-
-        public IEnumerable<MediaFile> Discover()
+        public IEnumerable<MediaFileHeader> Discover()
         {
             var currentDir = Directory.GetCurrentDirectory();
             var samplesDir = Path.Combine(currentDir, "../../../samples");

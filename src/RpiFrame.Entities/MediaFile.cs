@@ -5,6 +5,6 @@ namespace RpiFrame.Entities
     {
         public MediaFileHeader Metadata { get; set; }
 
-        public Gdk.Pixbuf Pixbuf { get; set; }
+        public byte[] DataBuffer { get; set; }
     }
 }

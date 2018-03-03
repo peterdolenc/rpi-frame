@@ -59,11 +59,25 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MediaDiscoveryService.cs" />
-    <Compile Include="RenderingEngine.cs" />
-    <Compile Include="MediaLoader.cs" />
-    <Compile Include="MediaSequencer.cs" />
+    <Compile Include="PictureFrameRunner.cs" />
   </ItemGroup>
-  <Import Project="..\RpiFrame.Entities\RpiFrame.Entities.projitems" Label="Shared" Condition="Exists('..\RpiFrame.Entities\RpiFrame.Entities.projitems')" />
+  <ItemGroup>
+    <ProjectReference Include="..\RpiFrame.Entities\RpiFrame.Entities.csproj">
+      <Project>{BA4727E8-1801-41EF-8743-45204B9835D2}</Project>
+      <Name>RpiFrame.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RpiFrame.MediaServices\RpiFrame.MediaServices.csproj">
+      <Project>{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}</Project>
+      <Name>RpiFrame.MediaServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RpiFrame.Rendering\RpiFrame.Rendering.csproj">
+      <Project>{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}</Project>
+      <Name>RpiFrame.Rendering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RpiFrame.Interfaces\RpiFrame.Interfaces.csproj">
+      <Project>{C551D017-23F2-4B37-A0D5-F599372214CB}</Project>
+      <Name>RpiFrame.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

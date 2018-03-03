@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace RpiFrame.Entities
 {
     public class Settings
@@ -7,7 +6,7 @@ namespace RpiFrame.Entities
         /// <summary>
         /// Duration of single image on the screen
         /// </summary>
-        public int Duration { get; set; }
+        public int Duration { get; set; } = 3;
 
 
     }

@@ -10,7 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{BD35
 		samples\IMG_4923.JPG = samples\IMG_4923.JPG
 	EndProjectSection
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RpiFrame.Entities", "RpiFrame.Entities\RpiFrame.Entities.shproj", "{F3256306-08B2-47D5-87B2-444D63387C0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpiFrame.Entities", "RpiFrame.Entities\RpiFrame.Entities.csproj", "{BA4727E8-1801-41EF-8743-45204B9835D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpiFrame.MediaServices", "RpiFrame.MediaServices\RpiFrame.MediaServices.csproj", "{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpiFrame.Rendering", "RpiFrame.Rendering\RpiFrame.Rendering.csproj", "{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpiFrame.Interfaces", "RpiFrame.Interfaces\RpiFrame.Interfaces.csproj", "{C551D017-23F2-4B37-A0D5-F599372214CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,5 +28,21 @@ Global
 		{A9C6ED3E-FF41-4577-9089-76CBEC2A97EA}.Debug|x86.Build.0 = Debug|x86
 		{A9C6ED3E-FF41-4577-9089-76CBEC2A97EA}.Release|x86.ActiveCfg = Release|x86
 		{A9C6ED3E-FF41-4577-9089-76CBEC2A97EA}.Release|x86.Build.0 = Release|x86
+		{BA4727E8-1801-41EF-8743-45204B9835D2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA4727E8-1801-41EF-8743-45204B9835D2}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA4727E8-1801-41EF-8743-45204B9835D2}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA4727E8-1801-41EF-8743-45204B9835D2}.Release|x86.Build.0 = Release|Any CPU
+		{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}.Debug|x86.Build.0 = Debug|Any CPU
+		{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}.Release|x86.ActiveCfg = Release|Any CPU
+		{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}.Release|x86.Build.0 = Release|Any CPU
+		{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}.Debug|x86.Build.0 = Debug|Any CPU
+		{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}.Release|x86.ActiveCfg = Release|Any CPU
+		{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}.Release|x86.Build.0 = Release|Any CPU
+		{C551D017-23F2-4B37-A0D5-F599372214CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C551D017-23F2-4B37-A0D5-F599372214CB}.Debug|x86.Build.0 = Debug|Any CPU
+		{C551D017-23F2-4B37-A0D5-F599372214CB}.Release|x86.ActiveCfg = Release|Any CPU
+		{C551D017-23F2-4B37-A0D5-F599372214CB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

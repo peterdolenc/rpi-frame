@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using RpiFrame.Entities;
-
-namespace RpiFrame
+ 
+namespace RpiFrame.MediaServices
 {
     public class MediaDiscoveryService
     {

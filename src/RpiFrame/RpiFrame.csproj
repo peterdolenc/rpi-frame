@@ -63,20 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RpiFrame.Entities\RpiFrame.Entities.csproj">
-      <Project>{BA4727E8-1801-41EF-8743-45204B9835D2}</Project>
+      <Project>{0F1B9663-460C-4437-BA37-9460D890E76F}</Project>
       <Name>RpiFrame.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RpiFrame.Interfaces\RpiFrame.Interfaces.csproj">
+      <Project>{FF298632-8707-4A11-8A42-4360C537BE30}</Project>
+      <Name>RpiFrame.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RpiFrame.MediaServices\RpiFrame.MediaServices.csproj">
-      <Project>{3A69A1B1-1D5F-414C-8AFB-3780D05FEC51}</Project>
+      <Project>{88BEE8DE-C8E9-472E-9A46-DE88A9DFB925}</Project>
       <Name>RpiFrame.MediaServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\RpiFrame.Rendering\RpiFrame.Rendering.csproj">
-      <Project>{E41F2A9F-673C-4BB8-8BF1-7FACA2202756}</Project>
+      <Project>{B48B393C-2D16-48C0-9F6F-DF845E0D18A7}</Project>
       <Name>RpiFrame.Rendering</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RpiFrame.Interfaces\RpiFrame.Interfaces.csproj">
-      <Project>{C551D017-23F2-4B37-A0D5-F599372214CB}</Project>
-      <Name>RpiFrame.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

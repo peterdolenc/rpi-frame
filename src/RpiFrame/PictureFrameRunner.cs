@@ -15,13 +15,15 @@ namespace RpiFrame
         }
 
         public async Task Run() {
-            
+
             var mds = new MediaDiscoveryService();
-            var engine = new RenderingEngine(new Entities.Settings(), _window);
             var mediaCollection = mds.Discover();
             var mediaSequencer = new MediaSequencer();
             var settingsService = new SettingsService();
-            var settings = settingsService.GetCurrentSettings();
+            settingsService.SetScreenDimensions(_window.DefaultWidth, _window.DefaultHeight);
+            var settings = settingsService.CurrentSettings;
+            var engine = new RenderingEngine(settings, _window);
+
 
             mediaSequencer.PrepareNextSequence(mediaCollection);
 

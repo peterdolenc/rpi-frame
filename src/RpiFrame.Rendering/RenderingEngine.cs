@@ -1,6 +1,7 @@
 ﻿using RpiFrame.Entities;
 using RpiFrame.Interfaces;
 
+
 namespace RpiFrame.Rendering
 {
     public class RenderingEngine
@@ -14,10 +15,11 @@ namespace RpiFrame.Rendering
             this._window = window;
         }
 
-
-        public void Render(MediaFile mediaFile) {
+        public void Render(MediaFile mediaFile)
+        {
             _window.LoadImage(mediaFile.DataBuffer);
         }
+
 
 
     }

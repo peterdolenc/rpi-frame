@@ -8,8 +8,13 @@ namespace RpiFrame.MediaServices
         {
         }
 
-        public Settings GetCurrentSettings() {
-            return new Settings();
+        public Settings CurrentSettings { get; } = new Settings();
+
+  
+        public void SetScreenDimensions(int defaultWidth, int defaultHeight)
+        {
+            CurrentSettings.ScreenWidth = defaultWidth;
+            CurrentSettings.ScreenHeight = defaultHeight;
         }
     }
 }

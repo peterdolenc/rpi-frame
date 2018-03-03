@@ -1,10 +1,50 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88BEE8DE-C8E9-472E-9A46-DE88A9DFB925}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RpiFrame.MediaServices</RootNamespace>
+    <AssemblyName>RpiFrame.MediaServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RpiFrame.Entities\RpiFrame.Entities.csproj" />
+    <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MediaDiscoveryService.cs" />
+    <Compile Include="MediaLoader.cs" />
+    <Compile Include="MediaSequencer.cs" />
+    <Compile Include="SettingsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RpiFrame.Entities\RpiFrame.Entities.csproj">
+      <Project>{0F1B9663-460C-4437-BA37-9460D890E76F}</Project>
+      <Name>RpiFrame.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RpiFrame.Interfaces\RpiFrame.Interfaces.csproj">
+      <Project>{FF298632-8707-4A11-8A42-4360C537BE30}</Project>
+      <Name>RpiFrame.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

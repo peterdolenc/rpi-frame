@@ -20,7 +20,7 @@ namespace RpiFrame
             var mediaCollection = mds.Discover();
             var mediaSequencer = new MediaSequencer();
             var settingsService = new SettingsService();
-            settingsService.SetScreenDimensions(_window.DefaultWidth, _window.DefaultHeight);
+            settingsService.SetScreenDimensions(_window.Screen.Width, _window.Screen.Height);
             var settings = settingsService.CurrentSettings;
             var engine = new RenderingEngine(settings, _window);
 
@@ -33,9 +33,8 @@ namespace RpiFrame
                 mediaSequencer.PrepareNextSequence(mediaCollection);
                 foreach (var mediaFile in sequence)
                 {
-                    engine.Render(mediaFile);
-                    Console.WriteLine(mediaFile.Metadata.Path);
-                    await Task.Delay(settings.Duration * 1000);
+                    Console.WriteLine($"Rendering {mediaFile.Metadata.Path}");
+                    await engine.Render(mediaFile);
                 }
             }
         }

@@ -34,6 +34,8 @@
     <Compile Include="MediaFile.cs" />
     <Compile Include="MediaFileHeader.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="VariableSetting.cs" />
+    <Compile Include="RangeSetting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

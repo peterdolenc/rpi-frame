@@ -3,6 +3,8 @@
 
 public partial class MainWindow
 {
+	private global::Gtk.ScrolledWindow scrolledwindow1;
+
 	private global::Gtk.Image MainImage;
 
 	protected virtual void Build()
@@ -13,9 +15,19 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.scrolledwindow1 = new global::Gtk.ScrolledWindow();
+		this.scrolledwindow1.CanFocus = true;
+		this.scrolledwindow1.Name = "scrolledwindow1";
+		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child scrolledwindow1.Gtk.Container+ContainerChild
+		global::Gtk.Viewport w1 = new global::Gtk.Viewport();
+		w1.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child GtkViewport.Gtk.Container+ContainerChild
 		this.MainImage = new global::Gtk.Image();
 		this.MainImage.Name = "MainImage";
-		this.Add(this.MainImage);
+		w1.Add(this.MainImage);
+		this.scrolledwindow1.Add(w1);
+		this.Add(this.scrolledwindow1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();

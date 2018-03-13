@@ -35,6 +35,8 @@
     <Compile Include="RenderingEngine.cs" />
     <Compile Include="ImageConverter.cs" />
     <Compile Include="ImageHelper.cs" />
+    <Compile Include="RenderingProperties.cs" />
+    <Compile Include="Fitment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RpiFrame.Entities\RpiFrame.Entities.csproj">

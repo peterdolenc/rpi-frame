@@ -12,20 +12,19 @@
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+      <widget class="Gtk.Fixed" id="AlignmentBin">
         <property name="MemberName" />
-        <property name="CanFocus">True</property>
-        <property name="ShadowType">In</property>
+        <property name="HasWindow">False</property>
         <child>
-          <widget class="Gtk.Viewport" id="GtkViewport">
+          <widget class="Gtk.Image" id="MainImage">
             <property name="MemberName" />
-            <property name="ShadowType">None</property>
-            <child>
-              <widget class="Gtk.Image" id="MainImage">
-                <property name="MemberName" />
-              </widget>
-            </child>
+            <property name="WidthRequest">500</property>
+            <property name="HeightRequest">400</property>
           </widget>
+          <packing>
+            <property name="X">75</property>
+            <property name="Y">61</property>
+          </packing>
         </child>
       </widget>
     </child>

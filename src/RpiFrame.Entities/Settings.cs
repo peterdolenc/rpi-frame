@@ -6,7 +6,7 @@ namespace RpiFrame.Entities
         /// <summary>
         /// Duration of single image on the screen in seconds
         /// </summary>
-        public int Duration { get; set; } = 10;
+        public int Duration { get; set; } = 100;
 
         /// <summary>
         /// This setting is basically inverted setting how much to zoom-in wide images
@@ -32,7 +32,7 @@ namespace RpiFrame.Entities
         ///  desire to fit them on one screen.
         /// Max 0.6 will allow only 40% of the screen to be taken by the image (normal portrait image on 16:9 screen)
         /// </summary>
-        public RangeSetting AllowedPortraitImageBlackArea = new RangeSetting(0.1, 0.1);
+        public RangeSetting AllowedPortraitImageBlackArea = new RangeSetting(0.4, 0.2);
 
 
 

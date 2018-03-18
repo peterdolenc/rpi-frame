@@ -33,6 +33,7 @@ namespace RpiFrame.Rendering
             Console.WriteLine($"New render, duration set to {_settings.Duration} seconds");
             Console.WriteLine($"Fitment {props.Fitment.ToString()}");
             Console.WriteLine("---");
+            _window.LoadImage(props.Image.ToImageBytes());
 
             do
             {
@@ -52,7 +53,7 @@ namespace RpiFrame.Rendering
         {
             if (props.Fitment == Fitment.Still)
             {
-                _window.LoadImage(props.Image.ToImageBytes());
+                //_window.LoadImage(props.Image.ToImageBytes());
                 await Task.Delay(availableMiliseconds);
 
                 return 0;
@@ -70,12 +71,13 @@ namespace RpiFrame.Rendering
                 // Crop the image and render it
                 int x = 0, y = 0;
                 if (props.Fitment == Fitment.HorizontalScroll) {
-                    x = props.CurrentStep;
+                    x = stepsJumpAmount;
                 } else if (props.Fitment == Fitment.VerticalScroll) {
-                    y = props.CurrentStep;
+                    y = stepsJumpAmount;
                 }
-                var cropped = props.Image.CropTo(_settings.ScreenWidth, _settings.ScreenHeight, x, y);
-                _window.LoadImage(cropped.ToImageBytes());
+                //var cropped = props.Image.CropTo(_settings.ScreenWidth, _settings.ScreenHeight, x, y);
+                //_window.LoadImage(cropped.ToImageBytes());
+                _window.Scroll(x,y);
 
                 double renderTime = DateTime.UtcNow.Subtract(startTime).TotalMilliseconds;
                 _lastStepRenderTime = (int)(renderTime / stepsJumpAmount);

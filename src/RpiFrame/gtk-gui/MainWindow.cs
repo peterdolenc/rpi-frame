@@ -3,7 +3,7 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.ScrolledWindow scrolledwindow1;
+	private global::Gtk.Fixed AlignmentBin;
 
 	private global::Gtk.Image MainImage;
 
@@ -15,19 +15,19 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.scrolledwindow1 = new global::Gtk.ScrolledWindow();
-		this.scrolledwindow1.CanFocus = true;
-		this.scrolledwindow1.Name = "scrolledwindow1";
-		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child scrolledwindow1.Gtk.Container+ContainerChild
-		global::Gtk.Viewport w1 = new global::Gtk.Viewport();
-		w1.ShadowType = ((global::Gtk.ShadowType)(0));
-		// Container child GtkViewport.Gtk.Container+ContainerChild
+		this.AlignmentBin = new global::Gtk.Fixed();
+		this.AlignmentBin.Name = "AlignmentBin";
+		this.AlignmentBin.HasWindow = false;
+		// Container child AlignmentBin.Gtk.Fixed+FixedChild
 		this.MainImage = new global::Gtk.Image();
+		this.MainImage.WidthRequest = 500;
+		this.MainImage.HeightRequest = 400;
 		this.MainImage.Name = "MainImage";
-		w1.Add(this.MainImage);
-		this.scrolledwindow1.Add(w1);
-		this.Add(this.scrolledwindow1);
+		this.AlignmentBin.Add(this.MainImage);
+		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.AlignmentBin[this.MainImage]));
+		w1.X = 75;
+		w1.Y = 61;
+		this.Add(this.AlignmentBin);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();

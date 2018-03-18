@@ -34,7 +34,11 @@ namespace RpiFrame
                 foreach (var mediaFile in sequence)
                 {
                     Console.WriteLine($"Rendering {mediaFile.Metadata.Path}");
-                    await engine.Render(mediaFile);
+                    try {
+                        await engine.Render(mediaFile);
+                    } catch (Exception e) {
+                        Console.WriteLine("Exception occured while rendering an image." + e.Message);
+                    }
                 }
             }
         }

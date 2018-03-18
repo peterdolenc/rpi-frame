@@ -17,7 +17,7 @@ namespace RpiFrame.Rendering
         {
             this._settings = settings;
             this._window = window;
-            this._lastStepRenderTime = 10; // 10ms default
+            this._lastStepRenderTime = 80; // 80ms default
         }
 
         /// <summary>
@@ -29,12 +29,10 @@ namespace RpiFrame.Rendering
             var end = DateTime.UtcNow.AddSeconds(_settings.Duration);
             double availableMiliseconds;
 
-
             Console.WriteLine("---");
             Console.WriteLine($"New render, duration set to {_settings.Duration} seconds");
             Console.WriteLine($"Fitment {props.Fitment.ToString()}");
             Console.WriteLine("---");
-
 
             do
             {
@@ -42,13 +40,6 @@ namespace RpiFrame.Rendering
                 Console.WriteLine($"Before rendering we have {availableMiliseconds} ms available");
                 int stepsMade = await Redraw(props, (int)availableMiliseconds);
                 Console.WriteLine($"After rendering we have {end.Subtract(DateTime.UtcNow).TotalMilliseconds} ms available");
-
-                if (stepsMade > 0) {
-                    double renderTime = availableMiliseconds - end.Subtract(DateTime.UtcNow).TotalMilliseconds;
-                    _lastStepRenderTime = (int)(renderTime / stepsMade);
-                    Console.WriteLine($"Step render time set to {_lastStepRenderTime} since {stepsMade} steps were done in {renderTime} ms.");
-                }
-
             } while (!props.ScrollingDone);
 
         }
@@ -69,7 +60,7 @@ namespace RpiFrame.Rendering
 
             // Scrolling
             else {
-                await Task.Delay(20);
+                var startTime = DateTime.UtcNow;
 
                 // Step size depends on the speed of the scrolling
                 int timeLeftInSteps = (int)Math.Max(1,Math.Ceiling((double)availableMiliseconds / Math.Max(_lastStepRenderTime, 1)));
@@ -86,11 +77,15 @@ namespace RpiFrame.Rendering
                 var cropped = props.Image.CropTo(_settings.ScreenWidth, _settings.ScreenHeight, x, y);
                 _window.LoadImage(cropped.ToImageBytes());
 
+                double renderTime = DateTime.UtcNow.Subtract(startTime).TotalMilliseconds;
+                _lastStepRenderTime = (int)(renderTime / stepsJumpAmount);
+                Console.WriteLine($"Step render time set to {_lastStepRenderTime} since {stepsJumpAmount} steps were done in {renderTime} ms.");
+
                 // If last step render time is smaller that time supposedly left for one step then add some delay
                 if (timeLeftInSteps > props.StepsLeft && props.CurrentStep > stepsJumpAmount) {
                     int additionalDelay = (int)Math.Floor((availableMiliseconds - ((double)props.StepsLeft * _lastStepRenderTime))/props.StepsLeft);
-                    //await Task.Delay(additionalDelay);
-                    Console.WriteLine($"Additional delay of {additionalDelay} ms inserted");
+                    await Task.Delay(Math.Max(additionalDelay, 0));
+                    Console.WriteLine($"Additional delay of {Math.Max(additionalDelay, 0)} ms inserted");
                 }
 
                 return stepsJumpAmount;
